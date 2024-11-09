@@ -1,170 +1,122 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-    animation: fadeIn 1s ease-in; /* Smooth fade-in for page load */
+    box-sizing: border-box;
 }
 
-.wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #fff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #00bcd4;
 }
 
 /* Header */
-header {
+.header {
     text-align: center;
-    margin-bottom: 30px;
+    padding: 60px 20px;
+    background: linear-gradient(to right, #00bcd4, #1a237e);
+    animation: headerAnimation 1s ease-in-out;
 }
 
 .app-title {
     font-size: 3rem;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    animation: fadeInUp 1s ease-out; /* Fade-in and slide-up effect for header */
+    margin-bottom: 20px;
+    color: #fff;
 }
 
 .tagline {
     font-size: 1.2rem;
-    color: #666;
+    color: #d1d1d1;
 }
 
 /* Navigation */
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-    padding: 0;
+.main-nav {
+    margin: 30px 0;
+    text-align: center;
 }
 
-.nav-item {
-    position: relative;
+.main-nav ul {
+    list-style: none;
+}
+
+.main-nav li {
+    display: inline;
     margin: 0 20px;
 }
 
-/* Topic Links */
-.topic-link {
-    text-decoration: none;
-    font-size: 1.5rem;
-    color: #007bff;
-    padding: 10px;
-    border-radius: 5px;
-    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
-}
-
-/* Hover Effect for Links */
-.topic-link:hover {
-    color: #fff;
-    background-color: #007bff;
-    transform: scale(1.1); /* Slightly scale up the link on hover */
-}
-
-/* Tooltip Styling */
-.tooltip {
-    position: absolute;
-    top: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 8px 15px;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    font-size: 1rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s ease-out;
-    border-radius: 5px;
-    white-space: nowrap;
-}
-
-/* Tooltip Display on Hover */
-.nav-item:hover .tooltip {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(-10px); /* Tooltip rise effect */
-}
-
-/* Call to Action Section */
-.cta-section {
-    text-align: center;
-    margin-top: 50px;
+.main-nav a {
+    color: #00bcd4;
     font-size: 1.2rem;
-    color: #333;
-    animation: fadeIn 1.5s ease-out; /* Fade-in for CTA section */
+    transition: all 0.3s ease;
 }
 
-/* Animation for Fade-In Effect */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+/* Hover Effects on Links */
+.main-nav a:hover {
+    color: #fff;
+    text-decoration: underline;
+    transform: scale(1.1); /* Slight scaling effect */
 }
 
-/* Animation for Header Fade In & Slide Up */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Content Sections */
+/* Content Section */
 .content-section {
     padding: 40px 20px;
-    margin: 30px 0;
     text-align: center;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+/* Content Fade-in */
 .content-section.fade-in {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* Content Header */
 .content-section h2 {
     font-size: 2rem;
-    color: #007bff;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    color: #00bcd4;
+    transition: color 0.3s ease;
 }
 
+/* Content Paragraph */
 .content-section p {
-    font-size: 1.2rem;
-    color: #333;
+    font-size: 1.1rem;
     line-height: 1.6;
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Button Styling */
-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 12px 20px;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+/* Back Button */
+.explore-button {
+    text-align: center;
+    margin-top: 20px;
 }
 
-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px); /* Button hover lift effect */
+.back-btn {
+    background-color: #00bcd4;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect for Back Button */
+.back-btn:hover {
+    background-color: #0288d1;
+    cursor: pointer;
+    box-shadow: 0px 4px 15px rgba(0, 188, 212, 0.5); /* Glow effect */
+    transform: scale(1.1); /* Slight scaling */
 }
 
 /* Smooth Scroll Effect */
@@ -172,14 +124,34 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Additional Hover Effects */
+/* Hover Effects for Sections */
 .content-section:hover {
-    transform: translateY(-5px); /* Lift effect on content hover */
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
-    background-color: rgba(0, 123, 255, 0.05); /* Light background color change on hover */
+    background-color: rgba(0, 188, 212, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 30px rgba(0, 188, 212, 0.2); /* Shadow effect */
 }
 
-/* Bounce Animation for Buttons */
+.content-section h2 {
+    color: #00bcd4;
+}
+
+/* Scroll-based Animations */
+body {
+    overflow-x: hidden;
+}
+
+.fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animations for Button */
 @keyframes bounce {
     0% {
         transform: translateY(0);
@@ -192,18 +164,35 @@ html {
     }
 }
 
-button {
-    animation: bounce 1s ease-in-out infinite;
+.back-btn {
+    animation: bounce 1s infinite;
 }
 
-/* Scroll-based Animations */
-.fade-in-on-scroll {
-    opacity: 0;
-    transform: translateY(100px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+/* New header animation */
+@keyframes headerAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.fade-in-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
+/* Glowing Button Effect */
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 5px #00bcd4, 0 0 10px #00bcd4, 0 0 15px #00bcd4;
+    }
+    50% {
+        box-shadow: 0 0 20px #0288d1, 0 0 30px #0288d1, 0 0 40px #0288d1;
+    }
+    100% {
+        box-shadow: 0 0 5px #00bcd4, 0 0 10px #00bcd4, 0 0 15px #00bcd4;
+    }
+}
+
+.back-btn:hover {
+    animation: glowing 1.5s ease-in-out infinite;
 }
