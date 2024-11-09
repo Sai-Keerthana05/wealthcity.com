@@ -5,16 +5,21 @@
     box-sizing: border-box;
 }
 
+/* Body and Global Settings */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #121212;
     color: #fff;
     line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 80px; /* Space for header */
 }
 
+/* Anchor Link Styles */
 a {
     text-decoration: none;
     color: #00bcd4;
+    transition: all 0.3s ease;
 }
 
 /* Header */
@@ -22,12 +27,17 @@ a {
     text-align: center;
     padding: 60px 20px;
     background: linear-gradient(to right, #00bcd4, #1a237e);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateZ(0); /* Helps with performance on 3D effects */
 }
 
 .app-title {
     font-size: 3rem;
     margin-bottom: 20px;
     color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInUp 1s ease-out;
 }
 
 .tagline {
@@ -53,12 +63,16 @@ a {
 .main-nav a {
     color: #00bcd4;
     font-size: 1.2rem;
-    transition: all 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s ease, transform 0.3s ease;
+    padding: 5px;
 }
 
+/* Hover Effects on Navigation Links */
 .main-nav a:hover {
     color: #fff;
     text-decoration: underline;
+    transform: translateY(-3px); /* Lift effect */
 }
 
 /* Content Section */
@@ -69,23 +83,31 @@ a {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
+    background: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Content Section Fade In */
 .content-section.fade-in {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* Content Section Title */
 .content-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+    color: #00bcd4;
 }
 
+/* Paragraph Style */
 .content-section p {
     font-size: 1.1rem;
     line-height: 1.6;
     max-width: 800px;
     margin: 0 auto;
+    text-align: justify;
 }
 
 /* Back Button */
@@ -94,52 +116,27 @@ a {
     margin-top: 20px;
 }
 
+/* Back Button Styling */
 .back-btn {
     background-color: #00bcd4;
-    padding: 10px 20px;
+    padding: 12px 25px;
     color: #fff;
     border-radius: 5px;
     font-size: 1.2rem;
     transition: all 0.3s ease;
-}
-
-.back-btn:hover {
-    background-color: #0288d1;
-    cursor: pointer;
-}
-
-/* Smooth Scroll Effect */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Hover Effects for Sections */
-.content-section:hover {
-    background-color: rgba(0, 188, 212, 0.1);
-    transform: translateY(-5px);
-}
-
-.content-section h2 {
-    color: #00bcd4;
-}
-
-/* Scroll-based Animations */
-body {
-    overflow-x: hidden;
-}
-
-.fade-in-on-scroll {
-    opacity: 0;
-    transform: translateY(100px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-in-on-scroll.visible {
-    opacity: 1;
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.3);
     transform: translateY(0);
 }
 
-/* Animations for Button */
+/* Hover Effects for Back Button */
+.back-btn:hover {
+    background-color: #0288d1;
+    cursor: pointer;
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 8px 24px rgba(0, 188, 212, 0.4);
+}
+
+/* 3D Animation for Button (Bounce) */
 @keyframes bounce {
     0% {
         transform: translateY(0);
@@ -152,6 +149,82 @@ body {
     }
 }
 
+/* Apply Bounce Animation */
 .back-btn {
-    animation: bounce 1s infinite;
+    animation: bounce 1s ease-in-out infinite;
+}
+
+/* Scroll Animations */
+.fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3D Hover Effect on Content Sections */
+.content-section:hover {
+    background-color: rgba(0, 188, 212, 0.1);
+    transform: translateY(-5px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Page Fade In Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Global Fade In for Elements */
+body {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Additional Scroll Animations */
+.scroll-effect {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.scroll-effect.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3D Effect on Navigation Items */
+.main-nav a {
+    display: inline-block;
+    perspective: 1000px; /* Apply perspective */
+    transform-style: preserve-3d; /* Preserve 3D space */
+}
+
+.main-nav a:hover {
+    transform: rotateY(10deg); /* Slight 3D tilt on hover */
+    transition: transform 0.5s;
+}
+
+/* Apply Zoom In to Headings */
+.content-section h2 {
+    transition: transform 0.3s ease;
+}
+
+.content-section h2:hover {
+    transform: scale(1.1); /* Slight zoom-in on hover */
+}
+
+/* Gradient Background for Buttons */
+.back-btn {
+    background: linear-gradient(145deg, #00bcd4, #0288d1);
+    box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
 }
